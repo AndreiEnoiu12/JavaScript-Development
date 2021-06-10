@@ -1,0 +1,26 @@
+<div>
+    <h1>Warnings</h1>
+    <label>Select severity</label>
+    <select [(ngModel)]="minLevel">
+        <option *ngFor="let opt of levels" [value]="opt">{{opt}}</option>
+    </select>
+
+    <button *ngIf="warnings_update" (click)="this.stop_update()">Disable warnings updates.</button>
+    <button *ngIf="!warnings_update" (click)="this.start_update()">Enable warnings updates.</button>
+
+    <ul>
+        <li *ngFor="let item of warnings">
+            Severity: {{item.severity}} ;
+            {{item.prediction.type}}
+            <div *ngIf="item.prediction.type === 'precipitation'">
+                {{item.prediction.precipitation_types}}
+            </div>
+            <div *ngIf="item.prediction.type === 'wind speed'">
+                {{item.prediction.directions}}
+            </div>
+            from:{{item.prediction.from}}
+            to:{{item.prediction.to}} {{item.prediction.unit}} in {{item.prediction.place}} on
+            {{item.prediction.time}}
+        </li>
+    </ul>
+</div>
