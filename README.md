@@ -1,4 +1,4 @@
 # JavaScript-Development
 JavaScript Weather App
 
-Programming Language: JavaScript
+Programming Language: JavaScript, HTML
